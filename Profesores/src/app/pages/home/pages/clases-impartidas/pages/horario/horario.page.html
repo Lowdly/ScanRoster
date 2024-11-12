@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'home/clases-impartidas/'+matricula"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Horario de <br> {{nombreMateria}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="icon-only" name=""></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card routerLink="crear-horario" class="ion-margin-top">
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Crear horario</ion-label>
+        <ion-icon color="secondary" slot="end" name="add"></ion-icon>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="mensaje!=undefined"  class="ion-margin-top">
+    <ion-card-content>
+        <ion-label>{{mensaje}}</ion-label>
+    </ion-card-content>
+</ion-card>
+
+  <ion-card *ngFor="let item of horarios" (click)="opcionesActionSheet('Horario de ' + item.grado + ' ' + item.grupo)"  >
+    <ion-card-header>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="9">
+            <ion-card-title>{{item.diasemana}}</ion-card-title>
+          </ion-col>
+          <ion-col size="3">
+            <ion-card-title>{{item.grado}} "{{item.grupo}}"</ion-card-title>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-card-subtitle>Horario: {{item.horaInit}} - {{item.horaFin}} </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Salon: {{item.salon}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="recargarClases()" >
+      <ion-icon name="reload-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

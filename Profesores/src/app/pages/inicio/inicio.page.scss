@@ -1,0 +1,50 @@
+ion-content {
+    /* Ajuste del fondo a un degradado aún más uniforme */
+    --background: linear-gradient(165deg, rgb(50, 50, 50) 20%, rgb(70, 70, 70) 50%, rgb(110, 110, 110) 80%);
+    border: none;
+}
+
+.subtitulo{
+    color: white;
+}
+
+.centradoFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.barraInferior {
+    background-color: #333333;
+    color: white;
+    font-size: 15px;
+}
+
+.titulo {
+    margin-top: 50px;
+    height: 10vh;
+}
+
+ion-card {
+    border-radius: 3.125rem;
+}
+
+ion-card-title {
+    font-size: 5vh;
+    display: block;
+}
+
+ion-card-subtitle {
+    text-align: center;
+}
+
+ion-img {
+    margin-top: 10vh;
+    height: 30vh;
+}
+
+.tranparente{
+    border: none;
+    background:  rgb(110, 110, 110);
+}
+  

@@ -1,0 +1,74 @@
+
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'home/clases-impartidas/'+matricula+'/horario/'+idClass+'/'+nombreMateria"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Crear Horario de <br> {{nombreMateria}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="icon-only" name=""></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card-content>
+    <ion-list>
+      <form [formGroup]="form" (ngSubmit)="Registrarse(form.value)">
+
+        <ion-item>
+          <ion-label position="floating">Hora de Inicio</ion-label>
+          <ion-input formControlName="horaInit" type="time"></ion-input>
+        </ion-item>
+        <ion-label *ngIf="form.get('horaInit').hasError('required') && form.get('horaInit').touched">El campo es
+          obligatorio</ion-label>
+          
+          <ion-item>
+            <ion-label position="floating">Hora de Fin</ion-label>
+            <ion-input formControlName="horaFin" type="time"></ion-input>
+          </ion-item>
+          <ion-label *ngIf="form.get('horaFin').hasError('required') && form.get('horaFin').touched">El campo es
+            obligatorio</ion-label>
+          <ion-item>
+            <ion-label position="floating">Sala</ion-label>
+            <ion-input formControlName="salon" type="text"></ion-input>
+          </ion-item>
+          <ion-label *ngIf="form.get('salon').hasError('required') && form.get('salon').touched">El campo es
+            obligatorio</ion-label>
+            
+            <ion-item>
+              <ion-label position="floating">Dia de la Semana</ion-label>
+              <ion-select formControlName="idDiaSemana" value="0">
+                <ion-select-option value="1">Lunes</ion-select-option>
+                <ion-select-option value="2">Martes</ion-select-option>
+                <ion-select-option value="3">Miércoles</ion-select-option>
+                <ion-select-option value="4">Jueves</ion-select-option>
+                <ion-select-option value="5">Viernes</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-label *ngIf="form.get('idDiaSemana').hasError('required') && form.get('idDiaSemana').touched">El campo es
+              obligatorio</ion-label>
+
+
+        <ion-list>
+          <ion-text *ngIf="!validacion" [color]="status?'success':'danger'">
+            <h2>{{mensaje}}</h2>
+          </ion-text>
+        </ion-list>
+
+        <ion-button [disabled]="form.invalid" type="submit" class="ion-margin-top" expand="block" shape="round">
+          <ion-icon slot="end" name="add"></ion-icon>
+          Crear Horario
+        </ion-button>
+
+
+
+
+      </form>
+
+    </ion-list>
+  </ion-card-content>
+
+</ion-content>

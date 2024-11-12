@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Alumnos Asistidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="mensaje">{{ mensaje }}</div>
+  <ion-list *ngIf="alumnos && alumnos.length > 0">
+    <ion-item *ngFor="let alumno of alumnos">
+      <ion-label>
+        <h2>{{ alumno.nombre }}</h2>
+        <p>{{ alumno.apellidoPa }} {{ alumno.apellidoMa }}</p>
+      </ion-label>
+      <ion-note slot="end">{{ alumno['hora registrado'] }}</ion-note>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="!alumnos || alumnos.length === 0">No hay alumnos asistidos.</div>
+</ion-content>

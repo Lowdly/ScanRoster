@@ -1,0 +1,16 @@
+ion-content {
+    /* Ajuste del fondo a un degradado aún más uniforme */
+    --background: linear-gradient(165deg, rgb(50, 50, 50) 20%, rgb(70, 70, 70) 50%, rgb(110, 110, 110) 80%);
+    border: none;
+}
+
+.titulo{
+    border-radius: 50px;
+    text-align: center;
+}
+
+.centradoFlex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

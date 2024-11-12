@@ -1,0 +1,50 @@
+<app-header-back-login></app-header-back-login>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card color="secondary" class="titulo">
+        <ion-card-header>
+          <ion-card-title>Iniciar Sesión</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <form [formGroup]="form" (ngSubmit)="iniciarSesion(form.value)">
+
+          <ion-item>
+            <ion-label position="floating">ID</ion-label>
+            <ion-input formControlName="matricula" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item class="ion-margin-top">
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input  formControlName="password" type="password"></ion-input>
+          </ion-item>
+          <ion-label *ngIf="form.get('password').hasError('required') && form.get('password').touched">El campo es obligatorio</ion-label>
+
+          <ion-list>
+              <ion-text *ngIf="!validacion" color="danger">
+                  <h2>{{mensaje}}</h2>
+              </ion-text>
+          </ion-list>
+
+          <ion-button [disabled]="form.invalid"  type="submit" class="ion-margin-top" expand="block" shape="round">
+            <ion-icon slot="start" name="log-in-outline"></ion-icon>
+            iniciar Sesión
+          </ion-button>
+
+          
+
+
+        </form>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

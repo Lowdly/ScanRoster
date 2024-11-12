@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons  slot="start">
+      <ion-back-button [defaultHref]="'/home/pasar-lista/' + matricula "></ion-back-button>
+    </ion-buttons>
+    <ion-title>Opciones</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="icon-only" name=""></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="centradoFlex" *ngIf="codigo" >
+    <ngx-qrcode [value]="codigo + ''" ></ngx-qrcode>
+    <p>{{codigo}}</p>
+  </div>
+  <ion-card routerLink="crear-codigo">
+    <ion-card-content *ngIf="!codigo">
+      <ion-item>
+        <ion-label>Generar Codigo</ion-label>
+        <ion-icon color="secondary" slot="end" name="qr-code-outline"></ion-icon>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card routerLink="alumnos-asistidos/{{codigo}}">
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Empleados Asistidos</ion-label>
+        <ion-icon color="secondary" slot="end" name="people-outline"></ion-icon>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="recargarClases()" >
+      <ion-icon name="reload-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+

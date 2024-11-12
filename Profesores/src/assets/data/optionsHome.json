@@ -1,0 +1,17 @@
+[
+    {
+        "icono":"today-outline",
+        "path":"clases-hoy",
+        "titulo":"Reuniones de Hoy"
+    },
+    {
+        "icono":"list-outline",
+        "path":"pasar-lista",
+        "titulo":"Asistencia de hoy"
+    },
+    {
+        "icono":"school-outline",
+        "path":"clases-impartidas",
+        "titulo":"Area"
+    }
+]
